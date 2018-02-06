@@ -33,6 +33,7 @@ class COLOR:
     BLUE = (0, 0, 255)
     BLACK = (0, 0, 0)
     ORANGE = (255, 127, 0)
+    GREY = (127, 127, 127)
 
 
 def checkImage(widget, ind, image, color, width, height, rect):
@@ -77,6 +78,9 @@ class GUI:
             RText_p = font.render(text[2], True, fgcol[2])
             RText_u = font.render(text[3], True, fgcol[3])
             TRect = RText.get_rect()
+            TRect_h = RText_h.get_rect()
+            TRect_p = RText_p.get_rect()
+            TRect_u = RText_u.get_rect()
 
             self.ST_normal = pygame.Surface((self.Width, self.Height), pygame.HWSURFACE | pygame.SRCALPHA)
             checkImage(self.ST_normal, 0, self.Image, bgcol, self.Width, self.Height, TRect)
@@ -87,16 +91,16 @@ class GUI:
             self.ST_normal.blit(RText, ((self.Width - TRect[2]) / 2, (self.Height - TRect[3]) / 2))
 
             self.ST_hover = pygame.Surface((self.Width, self.Height), pygame.HWSURFACE | pygame.SRCALPHA)
-            checkImage(self.ST_hover, 1, self.Image, bgcol, self.Width, self.Height, TRect)
-            self.ST_hover.blit(RText_h, ((self.Width - TRect[2]) / 2, (self.Height - TRect[3]) / 2))
+            checkImage(self.ST_hover, 1, self.Image, bgcol, self.Width, self.Height, TRect_h)
+            self.ST_hover.blit(RText_h, ((self.Width - TRect_h[2]) / 2, (self.Height - TRect_h[3]) / 2))
 
             self.ST_press = pygame.Surface((self.Width, self.Height), pygame.HWSURFACE | pygame.SRCALPHA)
-            checkImage(self.ST_press, 2, self.Image, bgcol, self.Width, self.Height, TRect)
-            self.ST_press.blit(RText_p, ((self.Width - TRect[2]) / 2, (self.Height - TRect[3]) / 2))
+            checkImage(self.ST_press, 2, self.Image, bgcol, self.Width, self.Height, TRect_p)
+            self.ST_press.blit(RText_p, ((self.Width - TRect_p[2]) / 2, (self.Height - TRect_p[3]) / 2))
 
             self.ST_unable = pygame.Surface((self.Width, self.Height), pygame.HWSURFACE | pygame.SRCALPHA)
-            checkImage(self.ST_unable, 3, self.Image, bgcol, self.Width, self.Height, TRect)
-            self.ST_unable.blit(RText_u, ((self.Width - TRect[2]) / 2, (self.Height - TRect[3]) / 2))
+            checkImage(self.ST_unable, 3, self.Image, bgcol, self.Width, self.Height, TRect_u)
+            self.ST_unable.blit(RText_u, ((self.Width - TRect_u[2]) / 2, (self.Height - TRect_u[3]) / 2))
 
             pass
 
@@ -155,20 +159,25 @@ class GUI:
             RText_p = font.render(text[2], True, fgcol[2])
             RText_u = font.render(text[3], True, fgcol[3])
             TRect = RText.get_rect()
+            TRect_h = RText_h.get_rect()
+            TRect_p = RText_p.get_rect()
+            TRect_u = RText_u.get_rect()
             # self.ST_normal.fill(self.Bgcol[0])
             checkImage(self.ST_normal, 0, self.Image, bgcol, self.Width, self.Height, TRect)
             self.ST_normal.blit(RText, ((self.Width - TRect[2]) / 2, (self.Height - TRect[3]) / 2))
             # self.ST_hover.fill(self.Bgcol[1])
-            checkImage(self.ST_hover, 1, self.Image, bgcol, self.Width, self.Height, TRect)
-            self.ST_hover.blit(RText_h, ((self.Width - TRect[2]) / 2, (self.Height - TRect[3]) / 2))
+            checkImage(self.ST_hover, 1, self.Image, bgcol, self.Width, self.Height, TRect_h)
+            self.ST_hover.blit(RText_h, ((self.Width - TRect_h[2]) / 2, (self.Height - TRect_h[3]) / 2))
             # self.ST_press.fill(self.Bgcol[2])
-            checkImage(self.ST_press, 2, self.Image, bgcol, self.Width, self.Height, TRect)
-            self.ST_press.blit(RText_p, ((self.Width - TRect[2]) / 2, (self.Height - TRect[3]) / 2))
+            checkImage(self.ST_press, 2, self.Image, bgcol, self.Width, self.Height, TRect_p)
+            self.ST_press.blit(RText_p, ((self.Width - TRect_p[2]) / 2, (self.Height - TRect_p[3]) / 2))
             # self.ST_unable.fill(self.Bgcol[3])
-            checkImage(self.ST_unable, 3, self.Image, bgcol, self.Width, self.Height, TRect)
-            self.ST_unable.blit(RText_u, ((self.Width - TRect[2]) / 2, (self.Height - TRect[3]) / 2))
+            checkImage(self.ST_unable, 3, self.Image, bgcol, self.Width, self.Height, TRect_u)
+            self.ST_unable.blit(RText_u, ((self.Width - TRect_u[2]) / 2, (self.Height - TRect_u[3]) / 2))
 
     class GLabel:
         All = []
 
         pass
+
+

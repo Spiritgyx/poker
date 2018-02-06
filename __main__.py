@@ -48,10 +48,11 @@ class Game:
         print(n.connections)
         print(n.srvSock)
         print('CONNECTED')
-        self.BT_test = gui.GUI.GButton(text=('Test', 'HOVER', 'PRESS'), rect=(100, 100, 100, 50),
-                                       fgcol=(gui.COLOR.ORANGE, gui.COLOR.BLUE, gui.COLOR.WHITE),
-                                       bgcol=(gui.COLOR.BLACK, gui.COLOR.BLACK, gui.COLOR.BLUE),
+        self.BT_test = gui.GUI.GButton(text=('Test', 'HOVER', 'PRESS', 'UNABLE'), rect=(100, 100, 100, 50),
+                                       fgcol=(gui.COLOR.ORANGE, gui.COLOR.BLUE, gui.COLOR.WHITE, gui.COLOR.BLACK),
+                                       bgcol=(gui.COLOR.BLACK, gui.COLOR.BLACK, gui.COLOR.BLUE, gui.COLOR.GREY),
                                        command=btTest)
+        # self.BT_test.Enabled = False
         print('BUTTON CREATED')
         while not self.exitFlag:
             print('CYCLE')
