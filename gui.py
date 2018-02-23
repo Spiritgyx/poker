@@ -54,7 +54,7 @@ class GUI:
                      fgcol=((0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)),  # fg normal, fg hover, fg press, fg unabled
                      bgcol=((0, 0, 0), (0, 0, 0), (0, 0, 0), (0, 0, 0)),  # bg normal, bg hover, bg press, bg unabled
                      images=('', '', '', ''), font=Font.Default, command=None, tag=('mainmenu', None),
-                     lifetime=-1):
+                     lifetime=-1, args=None):
             self.Text = text
             self.Left = rect[0]
             self.Top = rect[1]
@@ -72,6 +72,7 @@ class GUI:
             self.LifeTime = lifetime
             self.toDestroy = False
             self.Image = images if images is not ('', '', '', '') else None
+            self.Cargs = args
 
             RText = font.render(text[0], True, fgcol[0])
             RText_h = font.render(text[1], True, fgcol[1])
@@ -140,7 +141,7 @@ class GUI:
                 if event.button == 1:
                     if self.PressDown and self.Hover:
                         if self.Command is not None:
-                            self.Command()
+                            self.Command(*self.Cargs) if self.Cargs is not None else self.Command()
                     self.PressDown = False
 
         def setText(self, new_text=None, new_font=None, new_fgcol=None, new_bgcol=None, new_image=None):
